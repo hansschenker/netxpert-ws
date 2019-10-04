@@ -1,0 +1,19 @@
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'lib-hs-material-layout',
+  template: `
+    <p>
+      hs-material-layout works!
+    </p>
+  `,
+  styles: []
+})
+export class HsMaterialLayoutComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+}

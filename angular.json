@@ -2,5 +2,217 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "newProjectRoot": "projects",
-  "projects": {}
+  "projects": {
+    "hs-material-layout": {
+      "projectType": "library",
+      "root": "projects/hs-material-layout",
+      "sourceRoot": "projects/hs-material-layout/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/hs-material-layout/tsconfig.lib.json",
+            "project": "projects/hs-material-layout/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/hs-material-layout/src/test.ts",
+            "tsConfig": "projects/hs-material-layout/tsconfig.spec.json",
+            "karmaConfig": "projects/hs-material-layout/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/hs-material-layout/tsconfig.lib.json",
+              "projects/hs-material-layout/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "hs-mat-navbar": {
+      "projectType": "library",
+      "root": "projects/hs-mat-navbar",
+      "sourceRoot": "projects/hs-mat-navbar/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/hs-mat-navbar/tsconfig.lib.json",
+            "project": "projects/hs-mat-navbar/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/hs-mat-navbar/src/test.ts",
+            "tsConfig": "projects/hs-mat-navbar/tsconfig.spec.json",
+            "karmaConfig": "projects/hs-mat-navbar/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/hs-mat-navbar/tsconfig.lib.json",
+              "projects/hs-mat-navbar/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "netxpert-site": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss",
+          "skipTests": true
+        },
+        "@schematics/angular:class": {
+          "skipTests": true
+        },
+        "@schematics/angular:directive": {
+          "skipTests": true
+        },
+        "@schematics/angular:guard": {
+          "skipTests": true
+        },
+        "@schematics/angular:module": {
+          "skipTests": true
+        },
+        "@schematics/angular:pipe": {
+          "skipTests": true
+        },
+        "@schematics/angular:service": {
+          "skipTests": true
+        }
+      },
+      "root": "projects/netxpert-site",
+      "sourceRoot": "projects/netxpert-site/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/netxpert-site",
+            "index": "projects/netxpert-site/src/index.html",
+            "main": "projects/netxpert-site/src/main.ts",
+            "polyfills": "projects/netxpert-site/src/polyfills.ts",
+            "tsConfig": "projects/netxpert-site/tsconfig.app.json",
+            "aot": false,
+            "assets": [
+              "projects/netxpert-site/src/favicon.ico",
+              "projects/netxpert-site/src/assets"
+            ],
+            "styles": [
+              "projects/netxpert-site/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/netxpert-site/src/environments/environment.ts",
+                  "with": "projects/netxpert-site/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "netxpert-site:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "netxpert-site:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "netxpert-site:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/netxpert-site/src/test.ts",
+            "polyfills": "projects/netxpert-site/src/polyfills.ts",
+            "tsConfig": "projects/netxpert-site/tsconfig.spec.json",
+            "karmaConfig": "projects/netxpert-site/karma.conf.js",
+            "assets": [
+              "projects/netxpert-site/src/favicon.ico",
+              "projects/netxpert-site/src/assets"
+            ],
+            "styles": [
+              "projects/netxpert-site/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/netxpert-site/tsconfig.app.json",
+              "projects/netxpert-site/tsconfig.spec.json",
+              "projects/netxpert-site/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/netxpert-site/e2e/protractor.conf.js",
+            "devServerTarget": "netxpert-site:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "netxpert-site:serve:production"
+            }
+          }
+        }
+      }
+    }},
+  "defaultProject": "hs-material-layout"
 }

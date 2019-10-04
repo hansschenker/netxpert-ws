@@ -17,7 +17,21 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "hs-material-layout": [
+        "dist/hs-material-layout"
+      ],
+      "hs-material-layout/*": [
+        "dist/hs-material-layout/*"
+      ],
+      "hs-mat-navbar": [
+        "dist/hs-mat-navbar"
+      ],
+      "hs-mat-navbar/*": [
+        "dist/hs-mat-navbar/*"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
