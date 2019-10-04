@@ -30,6 +30,12 @@
       ],
       "hs-mat-navbar/*": [
         "dist/hs-mat-navbar/*"
+      ],
+      "hs-mat-shell": [
+        "dist/hs-mat-shell"
+      ],
+      "hs-mat-shell/*": [
+        "dist/hs-mat-shell/*"
       ]
     }
   },
